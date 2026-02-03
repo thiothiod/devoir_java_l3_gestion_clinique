@@ -31,6 +31,7 @@ public class Main {
             System.out.println("2. Créer un Rendez-vous");
             System.out.println("3. Faire une Consultation");
             System.out.println("4. Voir les Consultations");
+            System.out.println("5. Filtrer les Consultations par Patient");
             System.out.println("0. Quitter");
             System.out.println("==========================================");
             System.out.print("Votre choix : ");
@@ -43,6 +44,8 @@ public class Main {
                 case 2 -> creerRV();
                 case 3 -> faireConsultation();
                 case 4 -> afficherConsultations();
+                case 5 -> filtrerConsultationsParPatient();
+
                 case 0 -> System.out.println("Fin du programme 👋");
                 default -> System.out.println("Choix invalide ❌");
             }
@@ -129,4 +132,18 @@ public class Main {
                 medecins.get(0)
         );
     }
+
+    private static void filtrerConsultationsParPatient() {
+
+    System.out.println("Liste des patients :");
+    for (Patient p : patients) {
+        System.out.println(p.getId() + " - " + p.getNomComplet());
+    }
+
+    System.out.print("Entrer l'ID du patient : ");
+    String idPatient = sc.nextLine();
+
+    rvService.filtrerConsultationsParPatient(idPatient);
+}
+
 }

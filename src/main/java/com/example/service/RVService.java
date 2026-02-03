@@ -54,4 +54,23 @@ public class RVService {
                 .filter(rv -> rv.getStatut() == StatutRV.FAIT)
                 .toList();
     }
+
+    public void filtrerConsultationsParPatient(String idPatient) {
+
+    boolean trouve = false;
+
+    for (RV rv : rvs) {
+        if (rv.getStatut() == StatutRV.FAIT &&
+            rv.getPatient().getId().equals(idPatient)) {
+
+            System.out.println(rv);
+            trouve = true;
+        }
+    }
+
+    if (!trouve) {
+        System.out.println("Aucune consultation trouvée pour ce patient.");
+    }
+}
+
 }

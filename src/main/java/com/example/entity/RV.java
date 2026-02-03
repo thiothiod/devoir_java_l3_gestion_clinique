@@ -36,4 +36,9 @@ public class RV {
                 ", Medecin=" + medecin +
                 ", Statut=" + statut + "]";
     }
+
+    public Patient getPatient() {
+    return patient;
+}
+
 }
